@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- https://www.bootstrapcdn.com/ -->
+    <title>Vue3 examples</title>
+    <!--Header-->
+    <nav class="navbar navbar-light bg-light">
+      <h2 class="text-muted">String Dublication</h2>
+    </nav>
+  </head>
+  <body>
+    
+    <!--Body-->
+    <div class="container body-font" id="app">
+      <label for="Message">Message:</label>
+      <input type="text" id="Message" name="Message" v-model.lazy="Message">
+      <label for="How_many">How many:</label>
+      <input type="text" id="How_many" name="How_many" v-model.number.lazy="How_many">
+      <button type="button" class="btn btn-info" v-on:click="getOutput(Message, How_many)">Do it!</button>
+      <br>
+      
+      <p v-if="errors.length">
+        <b>The following error(s) needs to be corrected:</b>
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+      </p>
+      <p v-if="!errors.length">{{ MessageOutput }}</p>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
